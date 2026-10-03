@@ -11,6 +11,11 @@ menuToggle?.addEventListener('click', () => {
   menuToggle.setAttribute('aria-expanded', String(isOpen));
 });
 
+document.querySelector('.header-resume-btn')?.addEventListener('click', () => {
+  nav?.classList.remove('open');
+  menuToggle?.setAttribute('aria-expanded', 'false');
+});
+
 const navLinks = Array.from(nav?.querySelectorAll('a[href^="#"]') || []);
 const sections = navLinks
   .map(link => {
@@ -162,21 +167,39 @@ if ('onscrollend' in window) {
   });
 }
 
+const resumeBtn = document.querySelector('.header-resume-btn');
+
+function updateStickyResumeButton() {
+  if (window.innerWidth <= 700) {
+    if (window.scrollY > 80) {
+      resumeBtn?.classList.add('is-sticky-mobile');
+    } else {
+      resumeBtn?.classList.remove('is-sticky-mobile');
+    }
+  } else {
+    resumeBtn?.classList.remove('is-sticky-mobile');
+  }
+}
+
 window.addEventListener('resize', () => {
   const currentActive = nav?.querySelector('a.active');
   updateIndicator(currentActive, false);
+  updateStickyResumeButton();
 });
 
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', () => {
     updateActiveNavByScroll(false);
+    updateStickyResumeButton();
   });
 } else {
   updateActiveNavByScroll(false);
+  updateStickyResumeButton();
 }
 
 window.addEventListener('load', () => {
   updateActiveNavByScroll(false);
+  updateStickyResumeButton();
 });
 
 const revealItems = document.querySelectorAll('.reveal');
@@ -203,6 +226,7 @@ window.addEventListener('scroll', () => {
       if (!isManualNavClick) {
         updateActiveNavByScroll(true);
       }
+      updateStickyResumeButton();
       scrollTicking = false;
     });
     scrollTicking = true;

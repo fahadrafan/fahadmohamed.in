@@ -159,6 +159,46 @@ a {
   opacity: 1;
 }
 
+.header-nav-group {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.header-resume-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: .88rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: #edf5f3;
+  background: rgba(121, 170, 252, 0.08);
+  border: 1px solid rgba(121, 170, 252, 0.28);
+  white-space: nowrap;
+  transition: transform .2s ease, background .2s ease, border-color .2s ease, box-shadow .2s ease, color .2s ease;
+}
+
+.header-resume-btn span {
+  color: var(--accent);
+  transition: transform .2s ease, color .2s ease;
+}
+
+.header-resume-btn:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #071120;
+  box-shadow: 0 0 16px rgba(121, 170, 252, 0.35);
+  transform: translateY(-1px);
+}
+
+.header-resume-btn:hover span {
+  color: #071120;
+  transform: translateY(1px);
+}
+
 .menu-toggle {
   display: none;
   border: 0;
@@ -260,12 +300,21 @@ h3 {
   background: rgba(255, 255, 255, .03);
 }
 
+.button.linkedin,
 .button.github {
   border: 1px solid rgba(121, 170, 252, .26);
   background: rgba(121, 170, 252, .08);
   color: #dfeaff;
 }
 
+.button.linkedin:hover,
+.button.github:hover {
+  background: rgba(121, 170, 252, .15);
+  border-color: rgba(121, 170, 252, .5);
+  color: #ffffff;
+}
+
+.button.linkedin svg,
 .button.github svg {
   width: 18px;
   height: 18px;
@@ -946,7 +995,47 @@ pre {
   }
 
   .site-header {
+    position: relative;
     padding: 14px 0;
+  }
+
+  .site-header::before {
+    inset: 0 -14px;
+  }
+
+  .header-nav-group {
+    gap: 10px;
+  }
+
+  .header-resume-btn {
+    padding: 7px 13px;
+    font-size: .82rem;
+  }
+
+  .header-resume-btn.is-sticky-mobile {
+    position: fixed;
+    top: 12px;
+    right: 14px;
+    z-index: 150;
+    background: rgba(13, 23, 27, 0.94);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(121, 170, 252, 0.4);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5), 0 0 10px rgba(121, 170, 252, 0.2);
+    padding: 7px 13px;
+    font-size: .82rem;
+    animation: fadeInDown 0.2s ease;
+  }
+
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .menu-toggle {
