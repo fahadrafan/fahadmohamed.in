@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="bg-grad" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0c171c"/>
+      <stop offset="100%" stop-color="#060d10"/>
+    </linearGradient>
+  </defs>
+  <!-- Background with smooth rounded corners -->
+  <rect width="64" height="64" rx="15" fill="url(#bg-grad)"/>
+  <rect x="0.75" y="0.75" width="62.5" height="62.5" rx="14.25" fill="none" stroke="rgba(255, 255, 255, 0.12)" stroke-width="1.5"/>
+
+  <!-- Brand FM vector path -->
+  <g fill="#edf5f3">
+    <!-- Letter F -->
+    <path d="M 7.7 18.5 H 23.2 V 24 H 13.4 V 29 H 21.5 V 34.2 H 13.4 V 45.5 H 7.7 Z"/>
+    
+    <!-- Letter M (Space Grotesk style) -->
+    <path d="M 26.2 45.5 V 18.5 H 31.9 L 36.7 31.8 L 41.5 18.5 H 47.2 V 45.5 H 41.8 V 27.2 L 38.2 37.2 H 35.2 L 31.6 27.2 V 45.5 Z"/>
+  </g>
+
+  <!-- Accent Blue Dot -->
+  <circle cx="52.7" cy="42" r="3.6" fill="#79aafc"/>
+</svg>
